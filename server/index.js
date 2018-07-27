@@ -14,7 +14,7 @@ app.use(cors(corsOpts));
 app.use(express.static('dist'));
 
 app.get('/api/message', (req, res) => {
-  res.send({ message: 'YOUR EXPRESS BACKEND IS SUPER CONNECTED TO REACT' });
+  res.send({ message: 'YOUR EXPRESS BACK END IS SUPER CONNECTED TO REACT' });
 });
 
 app.listen(port, () => console.log('Listening on port 3000!'));
