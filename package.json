@@ -1,11 +1,11 @@
 {
   "name": "comp2068-project",
+  "author": "Connor Minielly",
+  "license": "MIT",
   "version": "1.0.0",
-  "licenses": [
-    {
-      "type": "MIT"
-    }
-  ],
+  "licenses": [{
+    "type": "MIT"
+  }],
   "main": "./server/index.js",
   "scripts": {
     "start": "npm run build && node ./server/index.js",
@@ -14,8 +14,6 @@
     "server": "nodemon ./server/index.js",
     "dev": "concurrently --kill-others \"npm run server\" \"npm run client\""
   },
-  "author": "Connor Minielly",
-  "license": "MIT",
   "dependencies": {
     "antd": "^3.7.2",
     "axios": "^0.18.0",
@@ -28,17 +26,19 @@
     "mongoose": "^5.2.5",
     "parcel-bundler": "^1.9.7",
     "react": "^16.3.1",
-    "react-dom": "^16.3.1"
+    "react-dom": "^16.3.1",
+    "react-router-dom": "^4.3.1",
+    "styled-components": "^3.3.3"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.6",
+    "concurrently": "^3.5.1",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
-    "concurrently": "^3.5.1",
     "nodemon": "^1.17.3"
   }
 }
