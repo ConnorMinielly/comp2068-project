@@ -12,6 +12,7 @@ const StyledIcon = styled(Icon)`
   -webkit-text-fill-color: transparent;
 `;
 
+
 export default StyledIcon;
 
 export const StyledMenu = styled(Menu)`
