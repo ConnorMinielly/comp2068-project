@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="500px" height="500px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g>
+        <g>
+            <g>
+                <path d="M128.654,207.1c14.634,0 237.69,0 244.949,0c0.001,0 0.001,0 0.001,0c5.687,0 11.045,2.666 14.475,7.202c3.429,4.536 4.534,10.417 2.984,15.889c-14.338,50.616 -48.38,170.785 -62.501,220.633c-3.731,13.173 -15.757,22.265 -29.448,22.265c-28.173,0 -75.5,0 -103.904,0c-13.931,0 -26.105,-9.408 -29.617,-22.89c-12.877,-49.421 -43.206,-165.821 -56.684,-217.55c-1.593,-6.115 -0.263,-12.623 3.601,-17.622c3.863,-5 9.826,-7.927 16.144,-7.927Z" style="fill:none;stroke:#fcfcfb;stroke-width:25.15px;"/>
+                <path d="M156.001,228.654c11.296,0 183.474,0 189.078,0c0,0 0.001,0 0.001,0c4.389,0 8.525,2.234 11.173,6.035c2.647,3.801 3.5,8.729 2.303,13.314c-11.068,42.412 -37.345,143.106 -48.245,184.875c-2.88,11.038 -12.163,18.656 -22.731,18.656c-21.747,0 -58.279,0 -80.204,0c-10.754,0 -20.151,-7.883 -22.862,-19.179c-9.94,-41.412 -33.351,-138.947 -43.755,-182.293c-1.229,-5.123 -0.203,-10.576 2.78,-14.765c2.982,-4.19 7.584,-6.643 12.462,-6.643Z" style="fill:url(#_Linear1);"/>
+                <path d="M108.356,172.257c-6.526,-195.015 289.468,-193.161 282.614,0" style="fill:none;stroke:#fcfcfb;stroke-width:24.37px;"/>
+            </g>
+            <g>
+                <path d="M283.908,379.541l-65.761,0c-2.512,0 -4.624,-0.856 -6.337,-2.569c-1.712,-1.712 -2.568,-3.825 -2.568,-6.336c0,-2.512 0.856,-4.596 2.568,-6.251c1.713,-1.655 3.825,-2.483 6.337,-2.483l65.761,0c2.512,0 4.624,0.828 6.337,2.483c1.712,1.655 2.569,3.739 2.569,6.251c0,2.511 -0.857,4.624 -2.569,6.336c-1.713,1.713 -3.825,2.569 -6.337,2.569Zm0,-31.003l-65.761,0c-2.512,0 -4.624,-0.857 -6.337,-2.569c-1.712,-1.713 -2.568,-3.825 -2.568,-6.337c0,-2.511 0.856,-4.595 2.568,-6.25c1.713,-1.656 3.825,-2.483 6.337,-2.483l65.761,0c2.512,0 4.624,0.827 6.337,2.483c1.712,1.655 2.569,3.739 2.569,6.25c0,2.512 -0.857,4.624 -2.569,6.337c-1.713,1.712 -3.825,2.569 -6.337,2.569Zm0,-30.251l-65.761,0c-2.512,0 -4.624,-0.856 -6.337,-2.569c-1.712,-1.713 -2.568,-3.825 -2.568,-6.336c0,-2.512 0.856,-4.596 2.568,-6.251c1.713,-1.656 3.825,-2.483 6.337,-2.483l65.761,0c2.512,0 4.624,0.827 6.337,2.483c1.712,1.655 2.569,3.739 2.569,6.251c0,2.511 -0.857,4.623 -2.569,6.336c-1.713,1.713 -3.825,2.569 -6.337,2.569Z" style="fill:#fcfcfb;fill-rule:nonzero;"/>
+            </g>
+        </g>
+    </g>
+    <defs>
+        <linearGradient id="_Linear1" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1.45459e-14,-237.553,205.319,1.25722e-14,250,451.534)">
+            <stop id="stop_1" offset="0" style="stop-color:#12c2e9;stop-opacity:1"/>
+            <stop id="stop_2" offset="0.5" style="stop-color:#c471ed;stop-opacity:1"/>
+            <stop id="stop_3" offset="1" style="stop-color:#f64f59;stop-opacity:1"/>
+        </linearGradient>
+    </defs>
+    <style>
+        #stop_1 {
+            animation: Stop1Shift 5s ease-in-out infinite alternate;
+        }
+        #stop_2 {
+            animation: Stop2Shift 5s ease-in-out infinite alternate;
+        }
+        #stop_3 {
+            animation: Stop3Shift 5s ease-in-out infinite alternate;
+        }
+        @keyframes Stop1Shift {
+            0%{stop-color: #12c2e9;}
+            50%{stop-color: #c471ed;}
+            100%{stop-color: #f64f59;}
+        }
+        @keyframes Stop2Shift {
+            0%{stop-color: #f64f59;}
+            50%{stop-color: #12c2e9}
+            100%{stop-color: #c471ed;}
+        }
+        @keyframes Stop3Shift {
+            0%{stop-color: #c471ed;}
+            50%{stop-color: #f64f59;}
+            100%{stop-color: #12c2e9;}
+        }
+    </style>
+</svg>

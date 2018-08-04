@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Icon } from 'antd';
-import StyledIcon, { StyledMenu as Menu, StyledMenuItem as MenuItem } from './NavigationStyle';
+import { withRouter } from 'react-router-dom';
+import StyledMenu, { StyledMenuItem as MenuItem } from './NavigationStyle';
 
 class Navigation extends Component {
   state = {
@@ -11,30 +12,32 @@ class Navigation extends Component {
     this.setState({ currentTab: e.key });
   };
 
+  handleRoute = (route) => {
+    const { history } = this.props;
+    history.push(route);
+  };
+
   render() {
     const { currentTab } = this.state;
     return (
       <header>
-        <div>
-          <StyledIcon type="star" />
-        </div>
-        <Menu theme="dark" selectedKeys={[currentTab]} mode="horizontal" onClick={this.handleClick}>
-          <MenuItem key="1">
-            <span className="gradient-font">
-              <Icon type="home" />
-              Home
-            </span>
+        <StyledMenu selectedKeys={[currentTab]} mode="horizontal" onClick={this.handleClick}>
+          <MenuItem key="1" onClick={() => this.handleRoute('/')}>
+            <Icon type="star" />
+            Home
           </MenuItem>
-          <MenuItem key="2">
-            <span className="gradient-font">
-              <Icon type="smile" />
-              Smile
-            </span>
+          <MenuItem key="2" onClick={() => this.handleRoute('/gradients/new')}>
+            <Icon type="plus-circle" />
+            New Gradient
           </MenuItem>
-        </Menu>
+          <MenuItem key="3" onClick={() => this.handleRoute('/gradients')}>
+            <Icon type="appstore" />
+            Check Bucket
+          </MenuItem>
+        </StyledMenu>
       </header>
     );
   }
 }
 
-export default Navigation;
+export default withRouter(Navigation);
