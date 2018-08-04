@@ -1,3 +1,3 @@
 module.exports = {
-  db: 'mongodb://connor:mlabpass1@ds111059.mlab.com:11059/mean-app-comp2068',
+  db: 'mongodb://connor:mlabpass1@ds145292.mlab.com:45292/gradient-bucket',
 };

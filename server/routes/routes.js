@@ -2,6 +2,17 @@ const express = require('express');
 
 const router = express.Router();
 
-const controller = require('../controllers/controller');
+const gradientController = require('../controllers/gradientController');
 
-router.get('/', controller);
+// index
+router.get('/', gradientController.index);
+// show
+router.get('/:id', gradientController.show);
+// create
+router.post('/', gradientController.create);
+// update
+router.post('/:id', gradientController.update);
+// delete
+router.post('/:id/delete', gradientController.delete);
+
+module.exports = router;
