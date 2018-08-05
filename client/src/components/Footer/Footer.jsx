@@ -1,9 +1,9 @@
 import React from 'react';
 import { Icon } from 'antd';
-import MadeBy from './FooterStyle';
+import MadeBy, { Background } from './FooterStyle';
 
 const Footer = () => (
-  <div>
+  <Background>
     <MadeBy>
       Made With
       {' '}
@@ -15,7 +15,7 @@ And
       {' '}
 By Connor Minielly
     </MadeBy>
-  </div>
+  </Background>
 );
 
 export default Footer;

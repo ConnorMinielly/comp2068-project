@@ -1,7 +1,21 @@
 import React, { Component } from 'react';
-import Background, { Nav, Foot } from './GradientList/GradientListStyles';
+import axios from 'axios';
+import Background from './GradientList/GradientListStyles';
+import Navigation from '../components/Navigation/Navigation';
+import Footer from '../components/Footer/Footer';
 
 class GradientList extends Component {
+  state = {
+    gradients: [],
+  };
+
+  componentDidMount = () => {
+    axios.get('/api/').then((res) => {
+      console.log(res.data);
+      // this.setState({gradients: res.data});
+    });
+  };
+
   scrollDown = (to) => {
     this.parallax.scrollTo(to);
   };
@@ -9,10 +23,9 @@ class GradientList extends Component {
   render() {
     return (
       <React.Fragment>
-        <Nav />
-        <Background>
-          <Foot />
-        </Background>
+        <Navigation currentTab={2} />
+        <Background />
+        <Footer />
       </React.Fragment>
     );
   }
