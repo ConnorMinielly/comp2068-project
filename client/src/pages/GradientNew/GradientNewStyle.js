@@ -48,12 +48,13 @@ export const Submit = styled.button`
 `;
 
 export const Line = styled.hr`
-  border: 3px solid #fbfbfa;
-  border-color: linear-gradient(to right, #8a2387, #e94057, #f27121);
+  border: none;
+  background-image: linear-gradient(to right, #8a2387, #e94057, #f27121);
+  height: 4px;
   border-radius: 3px;
-  width: 50vw;
+  width: 52vw;
   text-align: left;
-  margin: 0 0 3vh 16.7%;
+  margin: 0 0 1.5% 16.7%;
 `;
 
 export const ColorSelect = styled(Select)`
