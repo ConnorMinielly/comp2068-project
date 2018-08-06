@@ -6,7 +6,7 @@ const bundler = new Bundler('./client/public/index.html');
 const app = express();
 
 app.use(
-  '/api',
+  '/gradients_api',
   proxy({
     target: 'http://localhost:3000',
   }),

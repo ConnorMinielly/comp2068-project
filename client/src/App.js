@@ -7,11 +7,9 @@ import GradientList from './pages/GradientList';
 import GradientNew from './pages/GradientNew';
 
 class App extends Component {
-  componentDidMount() {
-    // axios.get('/api/message').then((res) => {
-    //   this.setState({ message: res.data.message });
-    // });
-  }
+  componentDidMount = () => {
+    axios.get('/gradients_api/test').then(res => console.log(res));
+  };
 
   render() {
     return (

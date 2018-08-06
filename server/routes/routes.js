@@ -6,6 +6,8 @@ const gradientController = require('../controllers/gradientController');
 
 // index
 router.get('/', gradientController.index);
+
+router.get('/test', gradientController.test);
 // show
 router.get('/:id', gradientController.show);
 // create

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
   Input, Row, Col, Select,
 } from 'antd';
+import axios from 'axios';
 import FormItem, {
   Background,
   AmazingForm as Form,
@@ -14,12 +15,25 @@ import Navigation from '../components/Navigation/Navigation';
 import Footer from '../components/Footer/Footer';
 
 class GradientNew extends Component {
+  state = {
+    colors: [],
+    direction: '',
+  };
+
+  // componentDidMount = () => {
+  //   axios.get('/gradients_api/test').then(res => console.log(res));
+  // };
+
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.form.validateFields((err, values) => {
-      if (!err) {
+    this.props.form.validateFields((errors, values) => {
+      if (!errors) {
         console.log('Received values of form: ', values);
-      } else console.log(err);
+        axios
+          .post('/gradients_api', { values })
+          .then(res => console.log(`server response: ${res}`))
+          .catch(err => console.log(err));
+      } else console.log(errors);
     });
   };
 
@@ -113,7 +127,7 @@ class GradientNew extends Component {
                       {
                         required: true,
                         message: 'Please Enter Only Valid Hex Codes!',
-                        pattern: /^#(?:[0-9a-fA-F]{3}){1,2}$/i,
+                        pattern: /^(#(?:[0-9a-fA-F]{3}){1,2},?)(#(?:[0-9a-fA-F]{3}){1,2},?)*$/i,
                       },
                     ],
                   })(
@@ -122,9 +136,9 @@ class GradientNew extends Component {
                       placeholder="#FFFFFF"
                       mode="tags"
                       style={{ width: '100%' }}
-                      onChange={this.handleColorSelect}
                       tokenSeparators={[',']}
                       dropdownStyle={{ visibility: 'hidden' }}
+                      onChange={e => this.setState({ colors: e })}
                     />,
                   )}
                 </FormItem>
@@ -142,15 +156,22 @@ class GradientNew extends Component {
                       },
                     ],
                   })(
-                    <Select initialValue="right" placeholder="Right">
+                    <Select
+                      initialValue="right"
+                      placeholder="Right"
+                      onChange={value => this.setState({ direction: value })}
+                    >
                       <Select.Option value="right">
 Right
                       </Select.Option>
                       <Select.Option value="left">
 Left
                       </Select.Option>
-                      <Select.Option value="vertical">
-Vertical
+                      <Select.Option value="top">
+Top
+                      </Select.Option>
+                      <Select.Option value="bottom">
+Bottom
                       </Select.Option>
                     </Select>,
                   )}
@@ -163,7 +184,7 @@ Vertical
               </Form>
             </Col>
             <Col span={10}>
-              <GradientView />
+              <GradientView direction={this.state.direction} colors={this.state.colors} />
             </Col>
           </Row>
         </Background>

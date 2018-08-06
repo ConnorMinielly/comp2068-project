@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const gradientValidators = [
   {
-    validator: codes => codes.length() >= 1,
+    validator: codes => codes.length >= 1,
     msg: 'There Must be At Least Two Color Codes.',
   },
   {
@@ -24,14 +24,15 @@ const GradientSpecificationSchema = new mongoose.Schema({
   },
   direction: {
     type: String,
-    default: 'left',
+    default: 'right',
     validate: {
       validator: direct => direct !== undefined
         && direct
           in {
             left: true,
             right: true,
-            vertical: true,
+            top: true,
+            bottom: true,
           },
       message: 'Invalid Direction Entered, Please Use A Valid Direction',
     },

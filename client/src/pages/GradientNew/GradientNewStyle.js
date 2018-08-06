@@ -1,8 +1,5 @@
 import styled from 'styled-components';
-import React from 'react';
-import {
-  Form, Input, Button, Select,
-} from 'antd';
+import { Form, Select } from 'antd';
 import genGradient from '../../global/gradientStringGenerator';
 
 export const AmazingForm = styled(Form)`
@@ -54,7 +51,7 @@ export const Line = styled.hr`
   background-image: linear-gradient(to right, #8a2387, #e94057, #f27121);
   height: 4px;
   border-radius: 3px;
-  width: 45vw;
+  width: 39vw;
   text-align: left;
   margin: 0 0 2% 21%;
 `;
@@ -68,8 +65,8 @@ export const ColorSelect = styled(Select)`
 export const GradientView = styled.div`
   margin-top: 4vw;
   width: 80%;
-  height: calc(100vh - 20vw);
-  background: ${({ colors, direction }) => (colors !== undefined ? genGradient(colors, direction) : '#FFF')};
+  height: 400px;
+  background: ${({ colors, direction }) => genGradient(colors, direction)};
   border: 4px solid transparent;
   border-image: linear-gradient(to left, #8a2387, #e94057, #f27121) 10% stretch;
 `;
