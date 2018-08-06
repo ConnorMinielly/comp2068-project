@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Background from './GradientList/GradientListStyles';
+import Background, { Cardbox } from './GradientList/GradientListStyles';
 import Navigation from '../components/Navigation/Navigation';
 import Footer from '../components/Footer/Footer';
+import CardTemplate from './GradientList/GradientTemplate';
 
 class GradientList extends Component {
   state = {
@@ -10,21 +11,35 @@ class GradientList extends Component {
   };
 
   componentDidMount = () => {
-    axios.get('/api/').then((res) => {
-      console.log(res.data);
-      // this.setState({gradients: res.data});
+    this.updateList();
+  };
+
+  updateList = () => {
+    axios.get('/gradients_api').then((res) => {
+      console.log(res);
+      this.setState({ gradients: res.data });
     });
   };
 
-  scrollDown = (to) => {
-    this.parallax.scrollTo(to);
+  handleDelete = (id) => {
+    axios.post(`/gradients_api/${id}/delete`).then(() => this.updateList());
   };
 
   render() {
     return (
       <React.Fragment>
         <Navigation currentTab={2} />
-        <Background />
+        <Background>
+          <Cardbox>
+            {this.state.gradients.map(gradient => (
+              <CardTemplate
+                key={gradient._id}
+                gradient={gradient}
+                handleDelete={this.handleDelete}
+              />
+            ))}
+          </Cardbox>
+        </Background>
         <Footer />
       </React.Fragment>
     );

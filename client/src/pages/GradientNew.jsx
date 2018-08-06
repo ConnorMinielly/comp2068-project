@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import {
-  Input, Row, Col, Select,
+  Input, Row, Col, Select, message,
 } from 'antd';
 import axios from 'axios';
+import { withRouter } from 'react-router-dom';
 import FormItem, {
   Background,
   AmazingForm as Form,
@@ -20,10 +21,6 @@ class GradientNew extends Component {
     direction: '',
   };
 
-  // componentDidMount = () => {
-  //   axios.get('/gradients_api/test').then(res => console.log(res));
-  // };
-
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFields((errors, values) => {
@@ -31,14 +28,10 @@ class GradientNew extends Component {
         console.log('Received values of form: ', values);
         axios
           .post('/gradients_api', { values })
-          .then(res => console.log(`server response: ${res}`))
-          .catch(err => console.log(err));
+          .then(() => this.props.history.push('/gradients'))
+          .catch(() => message.error('Creation Failed!'));
       } else console.log(errors);
     });
-  };
-
-  scrollDown = (to) => {
-    this.parallax.scrollTo(to);
   };
 
   render() {
@@ -194,4 +187,4 @@ Bottom
   }
 }
 
-export default Form.create()(GradientNew);
+export default withRouter(Form.create()(GradientNew));

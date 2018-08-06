@@ -8,7 +8,7 @@ import GradientNew from './pages/GradientNew';
 
 class App extends Component {
   componentDidMount = () => {
-    axios.get('/gradients_api/test').then(res => console.log(res));
+    // axios.get('/gradients_api/test').then(res => console.log(res));
   };
 
   render() {
