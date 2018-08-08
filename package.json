@@ -3,9 +3,11 @@
   "author": "Connor Minielly",
   "license": "MIT",
   "version": "1.0.0",
-  "licenses": [{
-    "type": "MIT"
-  }],
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
   "main": "./server/index.js",
   "scripts": {
     "start": "npm run build && node ./server/index.js",
@@ -28,6 +30,7 @@
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-router-dom": "^4.3.1",
+    "react-spring": "^5.5.4",
     "styled-components": "^3.3.3"
   },
   "devDependencies": {

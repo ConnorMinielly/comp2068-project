@@ -1,5 +1,9 @@
 const Gradient = require('../models/gradients');
 
+exports.test = (req, res) => {
+  res.send({ message: 'Hello!!' });
+};
+
 exports.index = (req, res) => {
   Gradient.find()
     .then(gradients => res.status(200).send(gradients))
@@ -15,18 +19,22 @@ exports.show = (req, res) => {
 };
 
 exports.create = (req, res) => {
+  console.log(req.body.values);
   Gradient.create({
-    name: req.params.name,
-    creator: req.params.creator,
-    description: req.params.description,
-    usecase: req.params.usecase,
+    name: req.body.values.name,
+    creator: req.body.values.creator,
+    description: req.body.values.description,
+    usecase: req.body.values.usecase,
     gradientSpecs: {
-      colors: req.params.colors,
-      direction: req.params.colors,
+      colors: req.body.values.colors,
+      direction: req.body.values.direction,
     },
   })
     .then(() => res.status(200).send({ message: 'Gradient Successfully Created!' }))
-    .catch(err => res.status(500).send(err));
+    .catch((err) => {
+      console.log(err);
+      res.status(500).send(err);
+    });
 };
 
 exports.update = (req, res) => {
@@ -41,7 +49,7 @@ exports.update = (req, res) => {
       usecase: req.params.usecase,
       gradientSpecs: {
         colors: req.params.colors,
-        direction: req.params.colors,
+        direction: req.params.direction,
       },
     },
   )

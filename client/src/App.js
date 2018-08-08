@@ -1,27 +1,23 @@
 import React, { Component } from 'react';
-import './app.css';
 import axios from 'axios';
 import { Route, Switch } from 'react-router-dom';
 import { Layout } from 'antd';
-import Navigation from './components/Navigation/Navigation';
 import Home from './pages/Home';
+import GradientList from './pages/GradientList';
+import GradientNew from './pages/GradientNew';
 
 class App extends Component {
-  state = { message: '' };
-
-  componentDidMount() {
-    // axios.get('/api/message').then((res) => {
-    //   this.setState({ message: res.data.message });
-    // });
-  }
+  componentDidMount = () => {
+    // axios.get('/gradients_api/test').then(res => console.log(res));
+  };
 
   render() {
-    const { message } = this.state;
     return (
       <Layout>
-        <Navigation />
         <Switch>
           <Route path="/" exact component={Home} />
+          <Route path="/gradients" exact component={GradientList} />
+          <Route path="/gradients/new" exact component={GradientNew} />
         </Switch>
       </Layout>
     );

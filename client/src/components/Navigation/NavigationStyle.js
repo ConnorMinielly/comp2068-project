@@ -1,36 +1,33 @@
-import { Icon, Menu } from 'antd';
+import { Menu } from 'antd';
 import styled from 'styled-components';
 
-const StyledIcon = styled(Icon)`
-  position: relative;
-  font-size: 5vw;
-  float: left;
-  line-height: 5vw;
-  padding-left: 2vw;
-  background: linear-gradient(to left, #12c2e9, #c471ed, #f64f59);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-`;
-
-export default StyledIcon;
-
-export const StyledMenu = styled(Menu)`
-  font-size: 2vw;
-  height: 6vw;
-  padding-left: 10vw;
-  line-height: 6vw;
+const StyledMenu = styled(Menu)`
+  font-size: 1.5vw;
+  height: 4vw;
+  line-height: 4vw;
   &&&&& .ant-menu-item-selected {
-    background: linear-gradient(to right, #7f7fd5, #86a8e7, #91eae4);
-    .gradient-font {
-      background: linear-gradient(to left, #0f2027, #203a43, #2c5364);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    background: linear-gradient(to bottom, #c33764, #1d2671);
+    border: none;
+    color: #fbfbfa;
+    &:hover {
+      -webkit-text-fill-color: #fbfbfa;
     }
   }
 
-  &:hover {
-    border-bottom: 2px solid linear-gradient(to right, #7f7fd5, #86a8e7, #91eae4);
+  &&& .ant-menu-item {
+    border: none;
+    transition: none;
+  }
+
+  .ant-menu-item:hover {
+    border: none;
+    transition: none;
+    background: linear-gradient(to right, #c33764, #1d2671);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 `;
+
+export default StyledMenu;
 
 export const StyledMenuItem = styled(Menu.Item)``;

@@ -14,13 +14,15 @@ const corsOpts = {
 
 mongoose.connect(config.db);
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use(cors(corsOpts));
 
-app.use('/api', apiRouter);
+app.use('/gradients_api', apiRouter);
 
 app.use(express.static('dist'));
 
-// app.get('/api/message', (req, res) => {
+// app.get('/gradients_api/test', (req, res) => {
 //   res.send({ message: 'YOUR EXPRESS BACK END IS SUPER CONNECTED TO REACT' });
 // });
 
