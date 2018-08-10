@@ -58,7 +58,6 @@ class GradientNew extends Component {
                   Submit,
                   Line,
                   ColorSelect,
-                  GradientView,
                 }}
                 actions={{ handleSubmit, handleColorChange, handleDirectionChange }}
               />
