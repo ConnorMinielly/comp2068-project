@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
-import { Row, Col, message } from 'antd';
+import {
+  Form, Row, Col, message,
+} from 'antd';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
-import FormItem, {
-  Background,
-  AmazingForm as Form,
-  Submit,
-  Line,
-  ColorSelect,
-  GradientView,
-} from './GradientNew/GradientNewStyle';
+import { Background, GradientView } from './GradientNew/GradientNewStyle';
 import FormTemplate from '../components/FormTemplate/FormTemplate';
 import Navigation from '../components/Navigation/Navigation';
 import Footer from '../components/Footer/Footer';
@@ -44,6 +39,10 @@ class GradientNew extends Component {
   render() {
     const { getFieldDecorator } = this.props.form;
     const { handleSubmit, handleColorChange, handleDirectionChange } = this;
+    const formLayout = {
+      labelCol: { span: 5 },
+      wrapperCol: { span: 19 },
+    };
     return (
       <React.Fragment>
         <Navigation currentTab={1} />
@@ -51,15 +50,8 @@ class GradientNew extends Component {
           <Row>
             <Col span={14}>
               <FormTemplate
-                components={{
-                  FormItem,
-                  Background,
-                  Form,
-                  Submit,
-                  Line,
-                  ColorSelect,
-                }}
                 actions={{ handleSubmit, handleColorChange, handleDirectionChange }}
+                formLayout={formLayout}
               />
             </Col>
             <Col span={10}>

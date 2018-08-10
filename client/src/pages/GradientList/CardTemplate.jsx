@@ -5,7 +5,9 @@ import { GradientView, GradientCard as Card } from './GradientListStyles';
 import genGradient from '../../global/gradientStringGenerator';
 
 const CardTemplate = (props) => {
-  const { gradient, handleGradientClick, handleShow } = props;
+  const {
+    gradient, handleGradientClick, handleShow, handleEdit,
+  } = props;
   message.config({
     top: '10%',
     maxCount: 1,
@@ -27,8 +29,8 @@ const CardTemplate = (props) => {
         </CopyToClipboard>
 )}
       actions={[
-        <Icon type="eye-o" onClick={handleShow} />,
-        <Icon type="edit" />,
+        <Icon type="eye-o" onClick={() => handleShow(gradient)} />,
+        <Icon type="edit" onClick={() => handleEdit(gradient)} />,
         <Popconfirm
           placement="bottom"
           title="Are You Sure You Want To Delete This?"

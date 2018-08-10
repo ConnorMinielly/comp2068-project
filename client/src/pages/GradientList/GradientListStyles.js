@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Card } from 'antd';
+import { Card, Modal } from 'antd';
 import genGradient from '../../global/gradientStringGenerator';
 
 const Background = styled.div`
@@ -27,5 +27,21 @@ export const GradientCard = styled(Card)`
   .ant-card-meta-title {
     color: #001529;
     font-family: Nunito, sans-serif;
+  }
+`;
+
+export const ShowModal = styled(Modal)`
+  .ant-modal-content {
+    background: ${({ colors, direction }) => colors !== undefined && genGradient(colors, direction)};
+  }
+  .ant-modal-footer {
+    border: none;
+    height: 1px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .GradientForm {
+    padding: 2vw 1vw 0vw 0vw;
   }
 `;
