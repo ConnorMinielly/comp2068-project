@@ -3,14 +3,12 @@
   "author": "Connor Minielly",
   "license": "MIT",
   "version": "1.0.0",
-  "licenses": [
-    {
-      "type": "MIT"
-    }
-  ],
+  "licenses": [{
+    "type": "MIT"
+  }],
   "main": "./server/index.js",
   "scripts": {
-    "start": "npm run build && node ./server/index.js",
+    "start": "node ./server/index.js",
     "build": "parcel build ./client/public/index.html",
     "client": "node devServer.js",
     "server": "nodemon ./server/index.js",
