@@ -19,7 +19,6 @@ exports.show = (req, res) => {
 };
 
 exports.create = (req, res) => {
-  console.log(req.body.values);
   Gradient.create({
     name: req.body.values.name,
     creator: req.body.values.creator,
@@ -32,7 +31,6 @@ exports.create = (req, res) => {
   })
     .then(() => res.status(200).send({ message: 'Gradient Successfully Created!' }))
     .catch((err) => {
-      console.log(err);
       res.status(500).send(err);
     });
 };
@@ -43,13 +41,13 @@ exports.update = (req, res) => {
       _id: req.params.id,
     },
     {
-      name: req.params.name,
-      creator: req.params.creator,
-      description: req.params.description,
-      usecase: req.params.usecase,
+      name: req.body.name,
+      creator: req.body.creator,
+      description: req.body.description,
+      usecase: req.body.usecase,
       gradientSpecs: {
-        colors: req.params.colors,
-        direction: req.params.direction,
+        colors: req.body.colors,
+        direction: req.body.direction,
       },
     },
   )

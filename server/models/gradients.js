@@ -25,17 +25,7 @@ const GradientSpecificationSchema = new mongoose.Schema({
   direction: {
     type: String,
     default: 'right',
-    validate: {
-      validator: direct => direct !== undefined
-        && direct
-          in {
-            left: true,
-            right: true,
-            top: true,
-            bottom: true,
-          },
-      message: 'Invalid Direction Entered, Please Use A Valid Direction',
-    },
+    enum: ['left', 'right', 'top', 'bottom'],
     required: 'Please Enter A Direction',
   },
 });
