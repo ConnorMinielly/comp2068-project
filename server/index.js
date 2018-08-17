@@ -3,6 +3,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const config = require('./config/connect');
 const apiRouter = require('./routes/routes');
+const path = require('path');
 
 const port = process.env.PORT || 3000;
 
@@ -20,6 +21,6 @@ app.use(cors(corsOpts));
 
 app.use('/gradients_api', apiRouter);
 
-app.use(express.static('dist'));
+app.use(express.static(path.join(__dirname, 'dist')));
 
 app.listen(port, () => console.log('Listening on port 3000!'));
