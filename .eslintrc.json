@@ -21,7 +21,8 @@
       "components": ["Link"],
       "specialLink": ["to", "hrefLeft", "hrefRight"],
       "aspects": ["noHref", "invalidHref", "preferButton"]
-    }]
+    }],
+    "react/destructuring-assignment": ["never"]
   },
   "settings": {
     "import/resolver": {

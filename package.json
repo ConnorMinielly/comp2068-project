@@ -3,9 +3,11 @@
   "author": "Connor Minielly",
   "license": "MIT",
   "version": "1.0.0",
-  "licenses": [{
-    "type": "MIT"
-  }],
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
   "main": "./server/index.js",
   "scripts": {
     "start": "node ./server/index.js",
@@ -14,7 +16,6 @@
     "server": "nodemon ./server/index.js",
     "dev": "concurrently --kill-others \"npm run server\" \"npm run client\"",
     "postinstall": "yarn build"
-
   },
   "engines": {
     "yarn": "1.7.0",
@@ -23,6 +24,7 @@
   "dependencies": {
     "antd": "^3.7.2",
     "axios": "^0.18.0",
+    "babel-plugin-import": "^1.8.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
