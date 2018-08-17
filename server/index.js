@@ -22,8 +22,4 @@ app.use('/gradients_api', apiRouter);
 
 app.use(express.static('dist'));
 
-// app.get('/gradients_api/test', (req, res) => {
-//   res.send({ message: 'YOUR EXPRESS BACK END IS SUPER CONNECTED TO REACT' });
-// });
-
 app.listen(port, () => console.log('Listening on port 3000!'));

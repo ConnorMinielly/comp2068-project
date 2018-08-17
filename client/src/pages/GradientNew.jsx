@@ -19,7 +19,6 @@ class GradientNew extends Component {
     e.preventDefault();
     form.validateFields((errors, values) => {
       if (!errors) {
-        console.log('Received values of form: ', values);
         axios
           .post('/gradients_api', { values })
           .then(() => this.props.history.push('/gradients'))

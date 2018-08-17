@@ -17,16 +17,16 @@ class GradientList extends Component {
     direction: '',
   };
 
+  componentDidMount = () => {
+    this.updateList();
+  };
+
   handleColorChange = (val) => {
     this.setState({ colors: val });
   };
 
   handleDirectionChange = (val) => {
     this.setState({ direction: val });
-  };
-
-  componentDidMount = () => {
-    this.updateList();
   };
 
   handleShow = (gradient) => {

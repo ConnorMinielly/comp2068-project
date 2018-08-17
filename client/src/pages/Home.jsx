@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Parallax } from 'react-spring';
 import { Row, Col } from 'antd';
+import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import Navigation from '../components/Navigation/Navigation';
 import Footer from '../components/Footer/Footer';
@@ -16,23 +17,28 @@ import NewGradient from '../assets/New_Gradient.svg';
 import Bucket from '../assets/Gradient_Bucket.svg';
 import CheckBucket from '../assets/Check_Bucket.svg';
 
-const Spalsh = ({ offset, scroll }) => (
+const Splash = ({ offset, scroll }) => (
   <React.Fragment>
     <Background offset={offset} speed={1} factor={2.5} />
     <Parallax.Layer offset={offset} speed={1}>
-      <Title>
-Gradient Bucket
-      </Title>
+      <Title>Gradient Bucket</Title>
       <Line />
-      <SubTitle>
-Click the Bucket To Get The Scoop!
-      </SubTitle>
+      <SubTitle>Click the Bucket To Get The Scoop!</SubTitle>
     </Parallax.Layer>
     <Parallax.Layer offset={offset + 0.35} speed={-1}>
-      <SwingingBucket src={Bucket} alt="Gradient Bucket" onClick={() => scroll(1)} />
+      <SwingingBucket
+        src={Bucket}
+        alt="Gradient Bucket"
+        onClick={() => scroll(1)}
+      />
     </Parallax.Layer>
   </React.Fragment>
 );
+
+Splash.propTypes = {
+  offset: PropTypes.number.isRequired,
+  scroll: PropTypes.func.isRequired,
+};
 
 const Main = withRouter(({ offset, handleRoute, history }) => (
   <React.Fragment>
@@ -48,9 +54,7 @@ const Main = withRouter(({ offset, handleRoute, history }) => (
             alt="New Gradient"
             onClick={() => handleRoute(history, '/gradients/new')}
           />
-          <ButtonText>
-Create New Gradient
-          </ButtonText>
+          <ButtonText>Create New Gradient</ButtonText>
         </Col>
         <Col span={12}>
           <FloatingBucket
@@ -58,9 +62,7 @@ Create New Gradient
             alt="Check Bucket"
             onClick={() => handleRoute(history, '/gradients')}
           />
-          <ButtonText>
-View Bucketed Gradients
-          </ButtonText>
+          <ButtonText>View Bucketed Gradients</ButtonText>
         </Col>
       </Row>
     </Parallax.Layer>
@@ -71,8 +73,13 @@ View Bucketed Gradients
 ));
 
 class Home extends Component {
-  scrollDown = (to) => {
-    this.parallax.scrollTo(to);
+  constructor(props) {
+    super(props);
+    this.parallax = React.createRef();
+  }
+
+  scrollDown = to => {
+    this.parallax.current.scrollTo(to);
   };
 
   handleRoute = (history, location) => {
@@ -81,8 +88,8 @@ class Home extends Component {
 
   render() {
     return (
-      <Parallax scrolling={false} ref={ref => (this.parallax = ref)} pages={2}>
-        <Spalsh offset={0} scroll={this.scrollDown} />
+      <Parallax scrolling={false} ref={this.parallax} pages={2}>
+        <Splash offset={0} scroll={this.scrollDown} />
         <Main offset={1} handleRoute={this.handleRoute} />
       </Parallax>
     );
